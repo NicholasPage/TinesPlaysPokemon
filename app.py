@@ -16,6 +16,7 @@ subprocess.call(["xdotool", "windowfocus", str(WID)])
 @app.route('/TPP/api/v1.0/command', methods=['POST'])
 def Input_Command():
     """"build the input for xdotool"""
+    subprocess.call(["xdotool", "windowfocus", str(WID)])
     subprocess.call(["xdotool", "key", request.json.get('input', "")])
     return jsonify(request.json.get('input', "")), 201
 
