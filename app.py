@@ -11,7 +11,7 @@ app = Flask(__name__)
 allowed_keys = ["A","B","Space","Up","Down","Left","Right"]
 
 WID = subprocess.call(["xdotool", "search", "--class", "retroarch"])
-subprocess.call(["xdotool", "windowfocus", WID])
+subprocess.call(["xdotool", "windowfocus", str(WID)])
 
 @app.route('/TPP/api/v1.0/command', methods=['POST'])
 def Input_Command():
