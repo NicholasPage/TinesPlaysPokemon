@@ -8,7 +8,7 @@ from flask import Flask, jsonify, request, abort, make_response
 
 app = Flask(__name__)
 
-allowed_keys = ["A","B","Shift_L","Up","Down","Left","Right"]
+allowed_keys = ["A","B","C","Up","Down","Left","Right"]
 
 WID = subprocess.run(["xdotool", "search", "--class", "retroarch"], capture_output=True)
 
