@@ -30,4 +30,4 @@ def Input_Command():
     return jsonify(request.json.get('input', "")), 201
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+     app.run(debug=True,host='0.0.0.0')
