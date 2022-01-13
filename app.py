@@ -22,7 +22,7 @@ WID = WID.split('\\')
 
 WID = WID[0]
 
-@app.route('/TPP/api/v1.0/command', methods=['POST'])
+@app.route('/TPP/api/v1/command', methods=['POST'])
 def Input_Command():
     """"build the input for xdotool"""
     subprocess.run(["xdotool", "windowfocus", WID])
