@@ -8,7 +8,7 @@ from flask import Flask, jsonify, request, abort, make_response
 
 app = Flask(__name__)
 
-allowed_keys = ["A","B","Space","Up","Down","Left","Right"]
+allowed_keys = ["A","B","Return","Up","Down","Left","Right"]
 
 WID = subprocess.run(["xdotool", "search", "--class", "retroarch"], capture_output=True)
 
@@ -22,12 +22,15 @@ WID = WID.split('\\')
 
 WID = WID[0]
 
+
 @app.route('/TPP/api/v1/command', methods=['POST'])
 def Input_Command():
     """"build the input for xdotool"""
-    subprocess.run(["xdotool", "windowfocus", WID])
-    subprocess.run(["xdotool", "key", request.json.get('input', "")])
-    return jsonify(request.json.get('input', "")), 201
-
+    if (request.json.get('input', "") in allowed_keys):
+        subprocess.run(["xdotool", "windowfocus", WID])
+        subprocess.run(["xdotool", "key", request.json.get('input', "")])
+        return jsonify(request.json.get('input', "")), 201
+    else:
+        return jsonify({request.json.get('input', "") ' is not approved'}), 400
 if __name__ == '__main__':
      app.run(debug=True,host='0.0.0.0')
