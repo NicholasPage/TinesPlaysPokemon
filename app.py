@@ -29,8 +29,8 @@ def Input_Command():
     if (request.json.get('input', "") in allowed_keys):
         subprocess.run(["xdotool", "windowfocus", WID])
         subprocess.run(["xdotool", "key", request.json.get('input', "")])
-        return jsonify(request.json.get('input', "")), 201
+        return jsonify(request.json.get('input', "")), 200
     else:
-        return jsonify({request.json.get('input', "") ' is not approved'}), 400
+        return jsonify('Unapproved Key Attempt'), 400
 if __name__ == '__main__':
      app.run(debug=True,host='0.0.0.0')
