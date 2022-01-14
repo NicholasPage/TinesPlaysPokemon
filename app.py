@@ -3,6 +3,7 @@
 import random
 import json
 import subprocess
+import time
 
 from flask import Flask, jsonify, request, abort, make_response
 
@@ -28,6 +29,7 @@ def Input_Command():
     """"build the input for xdotool"""
     if (request.json.get('input', "") in allowed_keys):
         subprocess.run(["xdotool", "windowfocus", WID])
+        time.sleep(0.1)
         subprocess.run(["xdotool", "key", request.json.get('input', "")])
         return jsonify(request.json.get('input', "")), 200
     else:
