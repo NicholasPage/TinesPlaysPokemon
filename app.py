@@ -1,5 +1,5 @@
 #!flask/bin/python
-"""Now let's build a JSON from s3. Did someone say stateful?"""
+"""API wrapper for XDOtool"""
 import random
 import json
 import subprocess
