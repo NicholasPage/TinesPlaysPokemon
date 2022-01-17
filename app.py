@@ -31,6 +31,7 @@ def Input_Command():
         subprocess.run(["xdotool", "windowfocus", WID])
         time.sleep(0.1)
         subprocess.run(["xdotool", "key", request.json.get('input', "")])
+        time.sleep(0.2)
         return jsonify(request.json.get('input', "")), 200
     else:
         return jsonify('Unapproved Key Attempt'), 400
