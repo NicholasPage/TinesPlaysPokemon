@@ -23,13 +23,15 @@ WID = WID.split('\\')
 
 WID = WID[0]
 
+subprocess.run(["xdotool", "windowfocus", WID])
+time.sleep(0.1)
 
 @app.route('/TPP/api/v1/command', methods=['POST'])
 def Input_Command():
     """"build the input for xdotool"""
     if (request.json.get('input', "") in allowed_keys):
-        subprocess.run(["xdotool", "windowfocus", WID])
-        time.sleep(0.1)
+        #subprocess.run(["xdotool", "windowfocus", WID])
+        #time.sleep(0.1)
         subprocess.run(["xdotool", "key", request.json.get('input', "")])
         time.sleep(0.2)
         return jsonify(request.json.get('input', "")), 200
