@@ -1,6 +1,5 @@
 #!flask/bin/python
 """API wrapper for XDOtool"""
-import random
 import json
 import subprocess
 import time
