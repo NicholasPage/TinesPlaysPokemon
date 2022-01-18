@@ -44,7 +44,7 @@ def xdo_find(wtitle):
     for window in lwindows:
         windownumber = str(window)
         #fix the string
-        windownumber = windownumber("'")
+        windownumber = windownumber.split("'")
         windownumber = windownumber[1]
         windownumber = windownumber.split('\\')
         windownumber = windownumber[0]
