@@ -42,7 +42,8 @@ def xdo_find(wtitle):
     #print(lwindows)
     # Get the particular one
     for window in lwindows:
-        cmd_string = "xdotool getwindowname " + window
+        windownumber = str(window)
+        cmd_string = "xdotool getwindowname " + windownumber
         win_name = subprocess.check_output(cmd_string, shell=True)
         if wtitle in win_name:
             return window
