@@ -3,6 +3,7 @@
 import json
 import subprocess
 import time
+import xdotool
 
 from flask import Flask, jsonify, request, abort, make_response
 
