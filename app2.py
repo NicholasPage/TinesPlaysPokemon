@@ -13,13 +13,13 @@ allowed_keys = ["A","B","C","Up","Down","Left","Right"]
 
 WID = xdotool.xdo_find("retroarch")
 
-#WID = WID.split("'")
+WID = WID.split("'")
 
-#WID = WID[1]
+WID = WID[1]
 
-#WID = WID.split('\\')
+WID = WID.split('\\')
 
-#WID = WID[0]
+WID = WID[0]
 
 @app.route('/TPP/api/v1/command', methods=['POST'])
 def Input_Command():
