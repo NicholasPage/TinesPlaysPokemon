@@ -68,7 +68,7 @@ def xdo_get(windowID):
         cmd_string = 'xdotool windowactivate ' + windowID
         result = subprocess.call(cmd_string, shell=True)
     except:
-        print(windowID + " not found")
+        print(str(windowID))
 
 def xdo_key(kstroke):
     """
