@@ -43,6 +43,11 @@ def xdo_find(wtitle):
     # Get the particular one
     for window in lwindows:
         windownumber = str(window)
+        #fix the string
+        windownumber = windownumber("'")
+        windownumber = windownumber[1]
+        windownumber = windownumber.split('\\')
+        windownumber = windownumber[0]
         cmd_string = "xdotool getwindowname " + windownumber
         win_name = subprocess.check_output(cmd_string, shell=True)
         if wtitle in win_name:
