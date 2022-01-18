@@ -41,17 +41,13 @@ def xdo_find(wtitle):
     lwindows = fwindows.split()
     #print(lwindows)
     # Get the particular one
-    for window in lwindows:
-        windownumber = str(window)
-        #fix the string
-        windownumber = windownumber.split("'")
-        windownumber = windownumber[1]
-        windownumber = windownumber.split('\\')
-        windownumber = windownumber[0]
-        cmd_string = "xdotool getwindowname " + windownumber
-        #win_name = subprocess.check_output(cmd_string, shell=True)
-        #if wtitle in win_name:
-        return window
+    windownumber = str(lwindows)
+    windownumber = windownumber.split("'")
+    windownumber = windownumber[1]
+    windownumber = windownumber.split('\\')
+    windownumber = windownumber[0]
+    cmd_string = "xdotool getwindowname " + windownumber
+    return windownumber
 
 
 def xdo_get(windowID):
