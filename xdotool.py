@@ -45,11 +45,11 @@ def xdo_find(wtitle):
         windownumber = str(window)
         cmd_string = "xdotool getwindowname " + windownumber
         win_name = subprocess.check_output(cmd_string, shell=True)
-        win_name = win_name.split("'")
-        win_name = win_name[1]
-        win_name = win_name.split('\\')
-        win_name = win_name[0]
         if wtitle in win_name:
+            window = window.split("'")
+            window = window[1]
+            window = window.split('\\')
+            window = window[0]
             return window
 
 
